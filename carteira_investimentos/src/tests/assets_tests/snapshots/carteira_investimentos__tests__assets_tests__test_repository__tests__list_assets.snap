@@ -1,0 +1,27 @@
+---
+source: src/tests/assets_tests/test_repository.rs
+expression: assets
+---
+[
+  {
+    "id": 1,
+    "name": "Bitcoin",
+    "unit_value": 10.05,
+    "registrant_id": 1,
+    "registered_at": "[TIMESTAMP]"
+  },
+  {
+    "id": 2,
+    "name": "Ethereum",
+    "unit_value": 9.5,
+    "registrant_id": 1,
+    "registered_at": "[TIMESTAMP]"
+  },
+  {
+    "id": 3,
+    "name": "Lite Coin",
+    "unit_value": 2.75,
+    "registrant_id": 2,
+    "registered_at": "[TIMESTAMP]"
+  }
+]

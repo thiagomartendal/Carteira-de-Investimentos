@@ -1,0 +1,13 @@
+---
+source: src/tests/assets_tests/test_repository.rs
+expression: assets2
+---
+[
+  {
+    "id": 3,
+    "name": "Lite Coin",
+    "unit_value": 2.75,
+    "registrant_id": 2,
+    "registered_at": "[TIMESTAMP]"
+  }
+]

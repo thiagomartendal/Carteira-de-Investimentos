@@ -1,0 +1,222 @@
+@import 'color.css';
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg1);
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+header nav {
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  background-color: var(--bg2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  padding-top: 1.5em;
+  width: 50vw;
+}
+
+header nav h1 {
+  color: var(--text1);
+}
+
+header nav button,
+main button {
+  border: 1px solid var(--text1);
+  border-radius: 0.5em;
+  background-color: var(--button-bg);
+  transition: 0.5s;
+  padding: 0.5em;
+  font-size: 1.2em;
+  color: var(--text1);
+  cursor: pointer;
+  width: 20%;
+}
+
+header nav button:hover,
+main button:hover {
+  background-color: rgba(31, 198, 225, 0.3);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+main article {
+  border: 1px solid var(--border);
+  border-radius: 1em;
+  background-color: var(--bg2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 50vw;
+}
+
+main article section {
+  width: 100%;
+}
+
+main article section h2 {
+  color: var(--text1);
+}
+
+main article section h3 {
+  color: var(--text2);
+}
+
+main article section .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+main article section .line,
+main article section .line-master {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+main article section .line-master {
+  color: var(--text2);
+}
+
+main article section .line {
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  background-color: var(--input-bg);
+  color: var(--text1);
+  padding: 10px 0px;
+}
+
+main article section .line div {
+  align-self: center; /* Centralização vertical */
+  overflow-x: auto;
+}
+
+main article section .line .actions {
+  display: flex;
+  justify-content: center;
+}
+
+main article section .line button {
+  width: auto;
+}
+
+main article section .line .left-btn {
+  margin-right: 10px;
+}
+
+main .manipulate-asset form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
+  width: 100%;
+}
+
+main .manipulate-asset form input {
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  margin: 0.5em 0px;
+  padding: 0.5em;
+  font-size: 1.2em;
+  color: var(--text1);
+  outline: none;
+}
+
+main .manipulate-asset form input[type="text"],
+main .manipulate-asset form input[type="number"] {
+  background-color: var(--input-bg);
+  width: 80%;
+}
+
+main .manipulate-asset form input[type="text"]:focus,
+main .manipulate-asset form input[type="number"]:focus {
+  border-color: var(--text1);
+}
+
+main #register-asset, main #update-asset {
+  display: none;
+}
+
+main .manipulate-asset form input[type="submit"] {
+  border-color: var(--text1);
+  background-color: var(--button-bg);
+  width: 20%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+main .manipulate-asset form input[type="submit"]:hover {
+  background-color: rgba(31, 198, 225, 0.3);
+}
+
+@media (max-width: 580px) {
+  header nav button,
+  main button {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 800px) {
+  header nav,
+  main article {
+    width: 90vw;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) {
+  header nav,
+  main article {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 1500px) {
+  main section .line .actions {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main section .line .actions button {
+    width: 95%;
+  }
+
+  main section .line .left-btn {
+    margin-right: unset;
+    margin-bottom: 0.5em;
+  }
+}

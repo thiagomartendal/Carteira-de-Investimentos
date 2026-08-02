@@ -1,0 +1,251 @@
+@import 'color.css';
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg1);
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+header nav {
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  background-color: var(--bg2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  padding-top: 1.5em;
+  width: 50vw;
+}
+
+header nav h1 {
+  color: var(--text1);
+}
+
+header nav button,
+main button {
+  border: 1px solid var(--text1);
+  border-radius: 0.5em;
+  background-color: var(--button-bg);
+  transition: 0.5s;
+  padding: 0.5em;
+  font-size: 1.2em;
+  color: var(--text1);
+  cursor: pointer;
+  width: 20%;
+}
+
+header nav button:hover,
+main button:hover {
+  background-color: rgba(31, 198, 225, 0.3);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+main article {
+  border: 1px solid var(--border);
+  border-radius: 1em;
+  background-color: var(--bg2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 50vw;
+}
+
+main article section {
+  width: 100%;
+}
+
+main article section h2 {
+  text-align: center;
+  color: var(--text1);
+}
+
+main article section .line,
+main article section .line-master {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+main article section .line-master {
+  color: var(--text2);
+}
+
+main article section .line,
+#owned-assets section .outline {
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  background-color: var(--input-bg);
+  color: var(--text1);
+  padding: 10px 0px;
+}
+
+main article section .line div,
+main article section .outline div {
+  align-self: center; /* Centralização vertical */
+  overflow-x: auto;
+}
+
+.buy-asset input { 
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1.2em;
+  color: var(--text1);
+  outline: none;
+}
+
+.buy-asset input[type="submit"] {
+  border-color: var(--text1);
+  background-color: var(--button-bg);
+  transition: 0.5s;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.buy-asset input[type="submit"]:hover {
+  background-color: rgba(31, 198, 225, 0.3);
+} 
+
+.buy-asset input[type="number"] {
+  background-color: #1a1e2d;
+  width: 150px;
+}
+
+.buy-asset input[type="number"]:focus {
+  border-color: var(--text1);
+}
+
+#owned-assets section .line,
+#owned-assets section .line-master {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#owned-assets section .line {
+  border: unset;
+  border-radius: unset;
+  background-color: unset;
+  margin-bottom: unset;
+}
+
+#owned-assets #wallet_value {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 1em;
+  color: var(--text2);
+}
+
+#owned-assets #wallet_value .w_value {
+  overflow-x: auto;
+}
+
+#owned-assets #wallet_value hr {
+  border-top: 1px dashed white;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  background-color: none;
+  padding-bottom: 5px;
+  flex-grow: 1;
+}
+
+#owned-assets section .outline {
+  margin-bottom: 0.5em;
+}
+
+#owned-assets section .outline hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 5px;
+}
+
+#owned-assets section .inside-line-master {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+}
+
+#owned-assets section .inside-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 14px;
+  text-align: center;
+}
+
+.value {
+  color: var(--text1);
+}
+
+.red {
+  color: red;
+}
+
+@media (max-width: 768px) {
+  header nav,
+  main article {
+    width: 90vw;
+  }
+
+  main article section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  main article section form input[type="number"] {
+    margin-bottom: 0.5em;
+    width: 80% !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  header nav,
+  main article {
+    width: 60vw;
+  }
+
+  main article section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  main article section form input[type="number"] {
+    margin-bottom: 0.5em;
+    width: 80% !important;
+  }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Carteira de Investimentos
+    </title>
+    <link href="/static/css/assets.css" type="text/css" rel="stylesheet" />
+    <script src="/static/js/script.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>
+          Bem-Vindo {{ user.username() }}
+        </h1>
+        <button onclick="href('/logout')">Sair</button>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <section>
+          <h2>Ativos Disponíveis</h2>
+        </section>
+        {% if available_assets.len() == 0 %}
+        <section>
+          <h3>Nenhum ativo disponível.</h3>  
+        </section>
+        {% else %}
+        <section>
+          <div class="line-master">
+            <div>Ativo</div>
+            <div>Valor Unitário</div>
+            <div>Aquisição</div>
+          </div>
+        </section>
+        <section>
+          {% for asset in available_assets %}
+          <div class="line">
+            <div>
+              {{ asset.name }}
+            </div>
+            <div>
+              ${{ asset.unit_value }}
+            </div>
+            <div>
+              <form action="/assets" method="POST" class="buy-asset">
+                <input type="hidden" name="asset_id" value="{{ asset.id }}" />
+                <input type="hidden" name="unit_value" value="{{ asset.unit_value }}" />
+                <input type="number" name="quantity" min="1" placeholder="Quantidade" required />
+                <input type="submit" value="Comprar" />
+              </form>
+            </div>
+          </div>
+          {% endfor %}
+        </section>
+        {% endif %}
+      </article>
+      <article id="owned-assets">
+        <section>
+          <h2>
+            Ativos Adquiridos
+          </h2>
+        </section>
+        {% if owned_assets.len() == 0 %}
+        <section>
+          <h3>Nenhum ativo foi adquirido até o momento.</h3>
+        </section>
+        {% else %}
+        <section>
+          <div id="wallet_value">
+            <h3>Valor de Variação da Carteira</h3>
+            <hr />
+            {% if wallet_value < 0.0 %}
+            <h3 class="w_value red">${{ "{:.2}" | format(wallet_value) }}</h3>
+            {% else %}
+            <h3 class="w_value value">${{ "{:.2}" | format(wallet_value) }}</h3>
+            {% endif %}
+          </div>
+        </section>
+        <section>
+          <div class="line-master">
+            <div>
+              Ativo
+            </div>
+            <div>
+              Valor Unitário
+            </div>
+            <div>
+              Quantidade
+            </div>
+            <div>
+              Variação Total
+            </div>
+          </div>
+        </section>
+        <section>
+          {% for asset in owned_assets %}
+          <div class="outline">
+            <div class="line">
+              <div>
+                {{ asset.name }}
+              </div>
+              <div>
+                ${{ asset.unit_value }}
+              </div>
+              <div>
+                {{ asset.quantity_owned }}
+              </div>
+              {% if asset.value_delta < 0.0 %}
+              <div class="red">
+                ${{ "{:.2}" | format(asset.value_delta) }}
+              </div>
+              {% else %}
+              <div>
+                ${{ "{:.2}" | format(asset.value_delta) }} 
+              </div>
+              {% endif %}
+            </div>
+            <hr />
+            <section>
+              <div class="inside-line-master">
+                <div>
+                  Data da Compra
+                </div>
+                <div>
+                  Comprado Por
+                </div>
+                <div>
+                  Quantidade
+                </div>
+                <div>
+                  Variação
+                </div>
+              </div>
+            </section>
+            <section>
+              {% for purchase in asset.purchase_history.0 %}
+              <div class="inside-line">
+                <div>
+                  {{ purchase.bought_at | human_datetime }}
+                </div>
+                <div>
+                  ${{ purchase.bought_for }}
+                </div>
+                <div>
+                  {{ purchase.quantity_bought }}
+                </div>
+                {% if purchase.value_delta < 0.0 %}
+                <div class="red">
+                  ${{ "{:.2}" | format(purchase.value_delta) }}
+                </div>
+                {% else %}
+                <div>
+                  ${{ "{:.2}" | format(purchase.value_delta) }}
+                </div>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </section>
+          </div>
+          {% endfor %}
+        </section>
+        {% endif %}
+      </article>
+    </main>
+  </body>
+</html>

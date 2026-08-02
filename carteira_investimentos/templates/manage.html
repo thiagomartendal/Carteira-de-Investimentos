@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Carteira de Investimentos
+    </title>
+    <link href="/static/css/manage.css" type="text/css" rel="stylesheet" />
+    <script src="/static/js/script.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>
+          Bem-Vindo {{ user.username() }}
+        </h1>
+        <button onclick="href('/logout')">Sair</button>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <section>
+          <div class="top">
+            <h2>Ativos Cadastrados</h2>
+            <button onclick="show_register(true)">Cadastrar Ativo</button>
+          </div>
+        </section>
+        {% if available_assets.len() == 0 %}
+        <section>
+          <h3>Nenhum ativo disponível.</h3>
+        </section>
+        {% else %}
+        <section>
+          <div class="line-master">
+            <div>Ativo</div>
+            <div>Valor Unitário</div>
+            <div>Data de Cadastro</div>
+            <div>Atividade</div>
+          </div>
+        </section>
+        <section>
+          {% for asset in available_assets %}
+          <div class="line">
+            <div>
+              {{ asset.name }}
+            </div>
+            <div>
+              ${{ asset.unit_value }}
+            </div>
+            <div>
+              {{ asset.registered_at | human_datetime }}         
+            </div>
+            <div>
+              <div class="actions">
+                <button
+                  class="left-btn"
+                  onclick="show_edit_asset('{{ asset.id }}', '{{ asset.name }}', '{{ asset.unit_value }}')"
+                >
+                  Editar
+                </button>
+                <button onclick="delete_asset('{{ asset.id }}')">Excluir</button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </section>
+        {% endif %}
+      </article>
+      <article id="register-asset" class="manipulate-asset">
+        <section>          
+          <div class="top">
+            <h2>Cadastrar Novo Ativo</h2>
+            <button onclick="show_register(false)">Cancelar</button>
+          </div>
+        </section>
+        <section>
+          <form action="/manage" method="POST">
+            <input type="text" name="name" placeholder="Nome" required />
+            <input type="number" name="unit_value" min="0.01" step="0.01" placeholder="Valor Unitário" required />
+            <input type="submit" value="Cadastrar" />
+          </form>
+        </section>
+      </article>
+      <article id="update-asset" class="manipulate-asset">
+        <section>
+          <div class="top">
+            <h2>Atualizar Ativo</h2>
+            <button onclick="hide_edit_asset()">Cancelar</button>
+          </div>
+        </section>
+        <section>
+          <form onsubmit="event.preventDefault()">
+            <input type="hidden" name="asset_id" />
+            <input type="text" name="new_name" placeholder="Nome" required />
+            <input type="number" name="new_unit_value" min="0.01" step="0.01" placeholder="Valor Unitário" required />
+            <input type="submit" value="Atualizar" onclick="update_asset()" />
+          </form>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

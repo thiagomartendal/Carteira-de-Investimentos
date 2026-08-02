@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Carteira de Investimentos
+    </title>
+    <link href="/static/css/account.css" type="text/css" rel="stylesheet" />
+    <script src="/static/js/script.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <main>
+      <article>
+        <section>
+          <h1>Carteira de Investimentos</h1>
+          <h2>Abrir Nova Conta</h2>
+        </section>
+        <section>
+          <form method="POST" action="/new-account">
+            <input type="email" name="email" placeholder="Email" autocomplete="email" required />
+            <input type="text" name="username" placeholder="Nome" autocomplete="username" required />
+            <input type="password" name="password" placeholder="Senha" autocomplete="password" required />  
+            <input type="password" name="repeat_password" placeholder="Confirme a senha" />
+            <div id="user-type">
+              Tipo de usuário:
+              <div id="radio1">
+                <input type="radio" name="user_type" value="1" id="buyer" checked />
+                <label for="buyer">Comprador</label>
+              </div>
+              <div id="radio2">
+                <input type="radio" name="user_type" value="2" id="manager" />
+                <label for="manager">Administrador</label>
+              </div>
+            </div>
+            <input type="submit" value="Cadastrar" onclick="confirm_password(event)" />
+            <input type="button" value="Acessar Conta" onclick="href('/login')" />       
+          </form>
+        </section>
+        <section class="error_msg">
+          <div class="msg_password"></div>
+        </section>
+        <section class="error_msg">
+          {% if !error_msg.is_empty() %}
+            {{ error_msg }}
+          {% endif %}
+        </section>
+        <section class="info">
+          <i>
+            Usuário Comprador: apenas realiza a compra de ativos.
+          </i>
+          <i>
+            Usuário Administrador: apenas cadastra e modifica ativos no sistema.
+          </i>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

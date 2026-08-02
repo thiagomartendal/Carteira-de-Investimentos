@@ -1,0 +1,11 @@
+---
+source: src/tests/assets_tests/test_repository.rs
+expression: asset
+---
+{
+  "id": 1,
+  "name": "Bitcoin",
+  "unit_value": 10.05,
+  "registrant_id": 1,
+  "registered_at": "+002026-07-31T20:14:20.355079000Z"
+}

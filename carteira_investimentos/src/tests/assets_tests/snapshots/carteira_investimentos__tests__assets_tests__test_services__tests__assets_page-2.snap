@@ -1,0 +1,36 @@
+---
+source: src/tests/assets_tests/test_services.rs
+expression: owned_assets_1
+---
+[
+  {
+    "id": 1,
+    "name": "Bitcoin",
+    "unit_value": 10.05,
+    "value_delta": 0.0,
+    "quantity_owned": 5.0,
+    "purchase_history": [
+      {
+        "bought_at": "[TIMESTAMP]",
+        "bought_for": 10.05,
+        "quantity_bought": 5.0,
+        "value_delta": 0.0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ethereum",
+    "unit_value": 9.5,
+    "value_delta": 0.0,
+    "quantity_owned": 7.0,
+    "purchase_history": [
+      {
+        "bought_at": "[TIMESTAMP]",
+        "bought_for": 9.5,
+        "quantity_bought": 7.0,
+        "value_delta": 0.0
+      }
+    ]
+  }
+]

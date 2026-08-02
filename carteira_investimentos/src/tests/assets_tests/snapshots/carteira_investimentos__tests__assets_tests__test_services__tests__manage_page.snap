@@ -1,0 +1,20 @@
+---
+source: src/tests/assets_tests/test_services.rs
+expression: assets1
+---
+[
+  {
+    "id": 1,
+    "name": "Bitcoin",
+    "unit_value": 10.05,
+    "registrant_id": 1,
+    "registered_at": "[TIMESTAMP]"
+  },
+  {
+    "id": 2,
+    "name": "Ethereum",
+    "unit_value": 9.5,
+    "registrant_id": 1,
+    "registered_at": "[TIMESTAMP]"
+  }
+]
