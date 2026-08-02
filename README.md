@@ -5,7 +5,7 @@ Repositório voltado ao projeto final do Bootcamp Santander em Rust.
 
 ![Login](telas/login.png)
 
-***
+___
 
 ## Nova Conta
 
