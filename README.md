@@ -1,5 +1,5 @@
 # Carteira-de-Investimentos
-Repositório voltado ao projeto final do Bootcamp Santander em Rust, que se trata de um simulador de carteira de investimentos em criptoativos. Neste projeto, é possível cadastrar ativos, e comprar os já cadastrados.
+Repositório voltado ao projeto final do Bootcamp Santander em **Rust**, que se trata de um simulador de carteira de investimentos em criptoativos. Neste projeto, é possível cadastrar ativos, e comprar os já cadastrados. O projeto utiliza o framework **Axum** para servir a API, junto ao **sqlx** para manipulação de banco de dados PostgreSQL. As demais dependências estão disponíveis no arquivo *Cargo.toml*, mas destaca-se o uso de **tokens JWT** para autenticação de sessão e **PrivateCookieJar** para armazenar cookies criptografados. Para os testes, a biblioteca **insta** é usada para avaliar as saídas das funções com os snapshots gerados.
 
 ## Login
 
