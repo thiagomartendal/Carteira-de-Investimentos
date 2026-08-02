@@ -1,4 +1,4 @@
-# Carteira-de-Investimentos
+# Carteira de Investimentos
 
 Repositório voltado ao projeto final do Bootcamp Santander em **Rust**, que se trata de um simulador de carteira de investimentos em criptoativos. Neste projeto, é possível cadastrar e comprar ativos. Um ativo é cadastrado por um usuário administrador, e só pode ser comprado por um usuário não-administrador.
 
