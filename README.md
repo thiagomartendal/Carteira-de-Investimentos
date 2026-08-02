@@ -1,9 +1,22 @@
 # Carteira-de-Investimentos
-Repositório voltado ao projeto final do Bootcamp Santander em **Rust**, que se trata de um simulador de carteira de investimentos em criptoativos. Neste projeto, é possível cadastrar ativos, e comprar os já cadastrados.
+Repositório voltado ao projeto final do Bootcamp Santander em **Rust**, que se trata de um simulador de carteira de investimentos em criptoativos. Neste projeto, é possível cadastrar e comprar ativos. Um ativo é cadastrado por um usuário administrador, e só pode ser comprado por um usuário não-administrador.
 
 O projeto utiliza o framework **Axum** para servir a API, junto ao **sqlx** para manipulação de banco de dados PostgreSQL. As demais dependências estão disponíveis no arquivo *Cargo.toml*, mas destaca-se o uso de **tokens JWT** para autenticação de sessão e **PrivateCookieJar** para armazenar cookies criptografados. Para os testes, a biblioteca **insta** é usada para avaliar as saídas das funções com os snapshots gerados.
 
 A funcionalidade básica do projeto não foi modificada, tendo-se dado preferência para melhorar a estrutura arquitetural do projeto, optando-se pela **arquitetura baseada em recursos** (alternativa ao MVC).
+
+## Executando o Projeto
+
+Para executar o projeto, primeiro deve-se criar o banco de dados **wallet** no postgresql, e este deve ser informado em uma string **DATABASE_URL** em um arquivo *.env* para a conexão. Então, acessar o diretório **carteira_investimentos** via terminal.
+
+Após acessar o diretório no terminal, deve-se criar as tabelas necessárias com sqlx através de: **sqlx migrate run**
+
+Caso seja de interesse, os teste unitários podem ser executados com: **cargo test**
+  + Caso seja necessário aceitar uma nova atribuição de snapshots, execute: **cargo insta review**
+
+Para executar o servidor da aplicação: **cargo run**
+
+Abaixo seguem algumas capturas de tela que mostram um pouco da aplicação funcional.
 
 ## Login
 
