@@ -11,7 +11,8 @@ A funcionalidade básica do projeto não foi modificada, tendo-se dado preferên
 Para executar o projeto, primeiro deve-se criar o banco de dados **wallet** no postgresql, e este deve ser informado em uma string **DATABASE_URL** em um arquivo *.env* para a conexão. Então, acessar o diretório **carteira_investimentos** via terminal.
 
   + Um modelo para a string de conexão no arquivo *.env*:
-    **DATABASE_URL=postgres://usuario:senha@host:porta/wallet**
+
+      **DATABASE_URL=postgres://usuario:senha@host:porta/wallet**
 
 Após acessar o diretório no terminal, deve-se criar as tabelas necessárias com sqlx através de: **sqlx migrate run**
 
